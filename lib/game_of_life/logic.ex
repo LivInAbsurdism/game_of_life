@@ -1,4 +1,4 @@
-defmodule GameOfLife.Game do
+defmodule GameOfLife.Logic do
   @rows 5
   @cols 5
 
@@ -8,21 +8,10 @@ defmodule GameOfLife.Game do
     # Generate a map/struct that increments each x,y by 1 and assigns false
     # for all but the given coordinates
     %{
-      {0, 0} => false,
-      {0, 1} => false,
-      {0, 2} => false,
-      {0, 3} => false,
-      {0, 4} => false,
-
-      {2, 2} => false,
       {2, 3} => true,
       {3, 3} => true,
       {4, 3} => true
     }
-
-    for {{x, y}, v} <- 1..5, into: %{} do
-      {x + 1, y + 1}
-    end
   end
 
   defp rule(state, 2) do
