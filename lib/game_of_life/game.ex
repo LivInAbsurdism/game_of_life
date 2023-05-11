@@ -44,4 +44,18 @@ defmodule GameOfLife.Game do
   defp cell(false) do
     "."
   end
+
+  def neighbor_count(board, {row, col}) do
+    (for r <- row-1..row+1, c <- col-1..col+1, {r,c} != {row,col}, do:
+    Map.get(board, {r,c}, false))
+    |> Enum.count(fn x -> x == true end)
+  end
+
+  def next_version_of_me_as_a_cell(board, {r, c}) do
+  end
+
+  def next_board(board) do
+  end
+
+
 end
